@@ -1,0 +1,11 @@
+.priority {
+    width: 20px;
+    height: 70px;
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+
+.high-priority {
+    background: red;
+}
