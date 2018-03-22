@@ -14,8 +14,4 @@ public class ResponseTransfer {
     public void setText(String text) {
         this.text = text;
     }
-
-    public void displayText() {
-        System.out.println(this.text);
-    }
 }

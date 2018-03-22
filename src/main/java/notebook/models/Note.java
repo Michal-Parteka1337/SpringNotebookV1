@@ -1,20 +1,30 @@
 package notebook.models;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.UUID;
 
 public class Note {
-    private int id;
+    private String id;
     private String title;
     private String content;
     private String priority;
-    private Date createStamp;
+    private String createStamp;
 
-    public int getId() {
+    public Note(String title, String content, String priority) {
+        this.setId();
+        this.title = title;
+        this.content = content;
+        this.priority = priority;
+        this.createStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    private void setId() {
+        this.id = UUID.randomUUID().toString();
     }
 
     public String getTitle() {
@@ -41,11 +51,7 @@ public class Note {
         this.priority = priority;
     }
 
-    public Date getCreateStamp() {
+    public String getCreateStamp() {
         return createStamp;
-    }
-
-    public void setCreateStamp(Date createStamp) {
-        this.createStamp = createStamp;
     }
 }
