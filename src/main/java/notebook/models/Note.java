@@ -1,5 +1,8 @@
 package notebook.models;
 
+import com.sun.javafx.beans.IDProperty;
+
+import javax.annotation.Generated;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.UUID;
