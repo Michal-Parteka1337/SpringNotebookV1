@@ -1,33 +1,41 @@
 package notebook.models;
 
-import com.sun.javafx.beans.IDProperty;
-
-import javax.annotation.Generated;
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.UUID;
 
+
+@Entity
 public class Note {
-    private String id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String title;
+
+    @Column(length=10000)
     private String content;
+
     private String priority;
     private String createStamp;
 
+    public Note() {
+
+    }
+
     public Note(String title, String content, String priority) {
-        this.setId();
         this.title = title;
         this.content = content;
         this.priority = priority;
         this.createStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    private void setId() {
-        this.id = UUID.randomUUID().toString();
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {

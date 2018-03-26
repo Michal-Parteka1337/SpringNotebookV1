@@ -1,13 +1,12 @@
 package notebook.repositiories;
 
 import notebook.models.Note;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-
 @Repository
-public class NoteRepository {
-    private ArrayList<Note> notes = new ArrayList<>();
+public interface NoteRepository extends JpaRepository<Note, Long> {
+    /*private ArrayList<Note> notes = new ArrayList<>();
 
     public void addNote(Note note) {
         this.notes.add(note);
@@ -15,5 +14,5 @@ public class NoteRepository {
 
     public ArrayList<Note> getNotes() {
         return notes;
-    }
+    }*/
 }
