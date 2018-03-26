@@ -15,5 +15,9 @@ public class NoteRepository {
         return notes;
     }
 
-
+    public void displayNotes() {
+        for (Note note : this.notes) {
+            System.out.println(note.toString());
+        }
+    }
 }

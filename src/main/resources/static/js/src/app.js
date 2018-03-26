@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
     var noteTitle = $("#note-title"),
         noteContent = $("#note-content"),
         addNoteButton = $("#add-note-button"),
@@ -18,7 +18,6 @@ $(document).ready(function(){
                 noteContent: noteContent.val(),
                 notePriority: notePriority.val()
             }
-
             var json = JSON.stringify(data);
 
             $.ajax({
