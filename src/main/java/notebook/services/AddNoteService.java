@@ -10,6 +10,5 @@ public class AddNoteService {
     public void addNote(AddNoteForm addNoteForm) {
         Note note = new Note(addNoteForm.getNoteTitle(), addNoteForm.getNoteContent(), addNoteForm.getPriority());
         noteRepository.addNote(note);
-        noteRepository.displayNotes();
     }
 }

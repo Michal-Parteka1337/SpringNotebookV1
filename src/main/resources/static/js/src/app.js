@@ -25,7 +25,10 @@ $(document).ready(function() {
                 url: "http://localhost:8080/addNote",
                 data: json,
                 contentType: "application/json",
-                success: "OK"
+                success: function() {
+                    console.log("Request sent!");
+                    console.log(json);
+                }
             })
         });
     }

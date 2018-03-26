@@ -14,10 +14,4 @@ public class NoteRepository {
     public ArrayList<Note> getNotes() {
         return notes;
     }
-
-    public void displayNotes() {
-        for (Note note : this.notes) {
-            System.out.println(note.toString());
-        }
-    }
 }

@@ -36,24 +36,17 @@
                     </div>
                 </div>
             </nav>
-            <!--<ul th:each="note: ${notes}" class="list-group">
+            <ul class="list-group">
                 <div class="col-xs-9">
-                    <li class="list-group-item">
+                    <li th:each="note: ${notes}" class="list-group-item">
                         <div class="note">
                             <div class="priority high-priority"></div>
                             <h3 th:text="${note.title}"></h3>
                             <p th:text="${note.content}"></p>
                         </div>
                     </li>
-                    <!--<li class="list-group-item">
-                        <div class="note">
-                            <div class="priority high-priority"></div>
-                            <h3>Note title</h3>
-                            <p>Note content</p>
-                        </div>
-                    </li>
                 </div>
-            </ul>-->
+            </ul>
             <div class="col-xs-3">
                 <button id="add-note" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add note</button>
                 <!-- Modal -->

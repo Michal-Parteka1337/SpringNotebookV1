@@ -1,6 +1,5 @@
 package notebook.controllers;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import notebook.models.AddNoteForm;
 import notebook.models.Note;
 import notebook.repositiories.NoteRepository;
@@ -12,23 +11,33 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 @Controller
 public class MainController {
+    AddNoteService addNoteService = new AddNoteService();
 
-    @GetMapping("/")
-    public String index() {
+    @RequestMapping("/")
+    public String index(Locale locale, Model model) {
+        Note initialNote = new Note("Initial Note", "Initial note", "high");
+        //ArrayList<Note> noteList = new ArrayList<Note>();
+
+        addNoteService.noteRepository.addNote(initialNote);
+        model.addAttribute("notes", addNoteService.noteRepository.getNotes());
         return "index";
     }
 
     @PostMapping("/addNote")
-    public ResponseEntity postController(@RequestBody AddNoteForm addNoteForm, Model model) {
+    public ResponseEntity postController(@RequestBody AddNoteForm addNoteForm) {
         //exampleService.fakeAuthenticate(addNoteForm) -- Test/Authentication
-        AddNoteService addNoteService = new AddNoteService();
         addNoteService.addNote(addNoteForm);
-        model.addAttribute("notes", addNoteService.noteRepository.getNotes());
         System.out.println("Note added!");
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
+    @GetMapping("/getNotes")
+    public String getNotes() {
+
+        return "/getNotes";
+    }
 }
