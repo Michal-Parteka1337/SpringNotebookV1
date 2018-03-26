@@ -26,8 +26,7 @@ $(document).ready(function() {
                 data: json,
                 contentType: "application/json",
                 success: function() {
-                    console.log("Request sent!");
-                    console.log(json);
+                    location.reload();
                 }
             })
         });

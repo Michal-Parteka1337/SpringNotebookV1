@@ -15,13 +15,10 @@ public class Note {
 
     @Column(length=10000)
     private String content;
-
     private String priority;
     private String createStamp;
 
-    public Note() {
-
-    }
+    public Note() { }
 
     public Note(String title, String content, String priority) {
         this.title = title;

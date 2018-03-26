@@ -6,13 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface NoteRepository extends JpaRepository<Note, Long> {
-    /*private ArrayList<Note> notes = new ArrayList<>();
-
-    public void addNote(Note note) {
-        this.notes.add(note);
-    }
-
-    public ArrayList<Note> getNotes() {
-        return notes;
-    }*/
 }
