@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
     @Autowired
-    NoteService noteService;
+    private NoteService noteService;
 
     @RequestMapping("/")
     public String index(Model model) {

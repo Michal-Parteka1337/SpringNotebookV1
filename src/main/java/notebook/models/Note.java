@@ -1,10 +1,7 @@
 package notebook.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -20,6 +17,7 @@ public class Note {
     private String content;
     private String priority;
     private String createStamp;
+    private User user;
 
     public Note() { }
 
@@ -28,6 +26,12 @@ public class Note {
         this.content = content;
         this.priority = priority;
         this.createStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+    }
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    public User getUser() {
+        return user;
     }
 
     public Long getId() {
