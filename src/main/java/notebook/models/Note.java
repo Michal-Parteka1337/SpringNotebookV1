@@ -1,6 +1,10 @@
 package notebook.models;
 
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -13,7 +17,6 @@ public class Note {
     private Long id;
     private String title;
 
-    @Column(length=10000)
     private String content;
     private String priority;
     private String createStamp;
@@ -61,5 +64,9 @@ public class Note {
 
     public String getCreateStamp() {
         return createStamp;
+    }
+
+    public void setCreateStamp() {
+        this.createStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());;
     }
 }
