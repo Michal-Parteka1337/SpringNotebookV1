@@ -4,15 +4,15 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private Long id;
-    @Column
     private String name;
-    @Column
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Note> userNotes;
 
     public void addNote(Note note) {
@@ -35,7 +35,6 @@ public class User {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     public List<Note> getUserNotes() {
         return userNotes;
     }

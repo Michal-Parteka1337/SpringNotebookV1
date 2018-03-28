@@ -7,16 +7,18 @@ import java.util.Calendar;
 
 
 @Entity
+@Table(name = "note")
 public class Note {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
-
     private String content;
     private String priority;
     private String createStamp;
+    @ManyToOne
+    @JoinColumn(name="user_id")
     private User user;
 
     public Note() { }
@@ -28,8 +30,6 @@ public class Note {
         this.createStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
     }
 
-    @ManyToOne
-    @JoinColumn(name="user_id")
     public User getUser() {
         return user;
     }

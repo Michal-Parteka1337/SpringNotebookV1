@@ -4,9 +4,11 @@ import notebook.models.Note;
 import notebook.models.User;
 import notebook.repositiories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserService {
 
     @Autowired
