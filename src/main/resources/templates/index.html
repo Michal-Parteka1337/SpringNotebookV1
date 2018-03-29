@@ -21,9 +21,18 @@
             padding: 0;
         }
 
-        .high-priority {
+        .high {
             background: red;
         }
+
+        .medium {
+            background: yellow;
+        }
+
+        .low {
+            background: green;
+        }
+
     </style>
     <body>
         <div class="container">
@@ -43,7 +52,7 @@
                 <div class="col-xs-9">
                     <li th:each="note: ${notes}" class="list-group-item">
                         <div class="note">
-                            <div class="priority high-priority"></div>
+                            <div class="priority" th:classappend="${note.priority}"></div>
                             <h3 th:text="${note.title}"></h3>
                             <p th:text="${note.content}"></p>
                         </div>
@@ -71,8 +80,19 @@
                                         <input type="text" class="form-control" id="note-content" placeholder="Description">
                                     </div>
                                     <div class="form-group">
-                                        <label for="priority">Priority</label>
-                                        <input type="text" class="form-control" id="priority" placeholder="Priority">
+                                        <label>Priority</label>
+                                        <!--<input type="text" class="form-control" id="priority" placeholder="Priority">-->
+                                        <div class="dropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                Select priority level
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul id="priority" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li><a>high</a></li>
+                                                <li><a>medium</a></li>
+                                                <li><a>low</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="userName">User</label>

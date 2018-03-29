@@ -32,9 +32,8 @@ public class MainController {
     public String addNote(Model model, @RequestBody AddNoteForm addNoteForm) {
         noteService.saveNoteForm(addNoteForm);
         User user = userService.findByName(addNoteForm.getUserName());
-        model.addAttribute("notes", noteService.findAll());
         model.addAttribute("user", user);
-        System.out.println("Note added!");
+        model.addAttribute("notes", noteService.findAll());
         return "index";
     }
 }

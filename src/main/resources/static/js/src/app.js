@@ -2,13 +2,20 @@ $(document).ready(function() {
     var noteTitle = $("#note-title"),
         noteContent = $("#note-content"),
         addNoteButton = $("#add-note-button"),
-        notePriority = $("#priority"),
+        notePriorityDropdown = $("#priority"),
         userName = $("#userName"),
-        modal = $('#myModal');
+        modal = $('#myModal'),
+        notePriorityDropdownContent;
 
     function addEventListenerToModal() {
         modal.on('shown.bs.modal', function () {
             $('#myInput').focus();
+        })
+    }
+
+    function addEventListenerToPriorityDropdown() {
+        notePriorityDropdown.on('click', function(e){
+            notePriorityDropdownContent = e.target.text;
         })
     }
 
@@ -17,7 +24,7 @@ $(document).ready(function() {
             var data = {
                 noteTitle: noteTitle.val(),
                 noteContent: noteContent.val(),
-                notePriority: notePriority.val(),
+                notePriority: notePriorityDropdownContent,
                 userName: userName.val()
             }
             var json = JSON.stringify(data);
@@ -35,5 +42,6 @@ $(document).ready(function() {
     }
 
     addEventListenerToModal();
+    addEventListenerToPriorityDropdown();
     addEventListenerToAddNoteButton();
 })

@@ -24,9 +24,10 @@ public class InitAppService {
 
         userService.saveUser(januszUser);
 
-        noteService.saveNote(new Note("Initial Note 1","Initial Note 1 content", "High", januszUser));
-        noteService.saveNote(new Note("Initial Note 2", "Initial Note 2 content", "Low", januszUser));
+        noteService.saveNote(new Note("High importance Note 1","Initial Note 1 content", "high", januszUser));
+        noteService.saveNote(new Note("Medium importance Note 2", "content", "medium", januszUser));
+        noteService.saveNote(new Note("Low importance Note 3", "Initial Note 2 content", "low", januszUser));
 
-        System.out.println("Initialized!");
+        System.out.println("Data initialized!");
     }
 }
