@@ -15,6 +15,12 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Note> userNotes;
 
+    public User () {}
+
+    public User(String name) {
+        this.name = name;
+    }
+
     public void addNote(Note note) {
         this.userNotes.add(note);
     }
@@ -41,5 +47,9 @@ public class User {
 
     public void setUserNotes(List<Note> userNotes) {
         this.userNotes = userNotes;
+    }
+
+    public String toString() {
+        return "Name: " + this.name + " Id: " + this.id;
     }
 }

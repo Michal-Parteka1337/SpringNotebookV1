@@ -14,6 +14,16 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    public User findByName(String name) {
+        List<User> users = userRepository.findAll();
+        for (User user : users) {
+            if (name.equals(user.getName())) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public User findOne(Long id) {
         return userRepository.getOne(id);
     }

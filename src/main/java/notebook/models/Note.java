@@ -23,10 +23,11 @@ public class Note {
 
     public Note() { }
 
-    public Note(String title, String content, String priority) {
+    public Note(String title, String content, String priority, User user) {
         this.title = title;
         this.content = content;
         this.priority = priority;
+        this.user = user;
         this.createStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
     }
 

@@ -2,6 +2,7 @@ package notebook.services;
 
 import notebook.models.AddNoteForm;
 import notebook.models.Note;
+import notebook.models.User;
 import notebook.repositiories.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,9 @@ public class NoteServiceIm implements NoteService {
 
     @Autowired
     private NoteRepository noteRepository;
+
+    @Autowired
+    private UserService userService;
 
     @Override
     public Note findOne(Long id) {
@@ -39,7 +43,14 @@ public class NoteServiceIm implements NoteService {
 
     @Override
     public Note saveNoteForm(AddNoteForm addNoteForm) {
-        Note noteToAdd = new Note(addNoteForm.getNoteTitle(), addNoteForm.getNoteContent(), addNoteForm.getPriority());
+        String userName = addNoteForm.getUserName();
+        User user = userService.findByName(userName);
+
+        if (user == null) {
+            user = new User(userName);
+        }
+
+        Note noteToAdd = new Note(addNoteForm.getNoteTitle(), addNoteForm.getNoteContent(), addNoteForm.getPriority(), user);
         return noteRepository.save(noteToAdd);
     }
 }

@@ -3,6 +3,7 @@ $(document).ready(function() {
         noteContent = $("#note-content"),
         addNoteButton = $("#add-note-button"),
         notePriority = $("#priority"),
+        userName = $("#userName"),
         modal = $('#myModal');
 
     function addEventListenerToModal() {
@@ -16,10 +17,11 @@ $(document).ready(function() {
             var data = {
                 noteTitle: noteTitle.val(),
                 noteContent: noteContent.val(),
-                notePriority: notePriority.val()
+                notePriority: notePriority.val(),
+                userName: userName.val()
             }
             var json = JSON.stringify(data);
-
+            console.log(json);
             $.ajax({
                 type: "POST",
                 url: "http://localhost:8080/addNote",

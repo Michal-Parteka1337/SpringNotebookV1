@@ -4,11 +4,13 @@ public class AddNoteForm {
     private String noteTitle;
     private String noteContent;
     private String priority;
+    private String userName;
 
-    public AddNoteForm(String noteTitle, String noteContent, String priority) {
+    public AddNoteForm(String noteTitle, String noteContent, String priority, String userName) {
         this.noteTitle = noteTitle;
         this.noteContent = noteContent;
         this.priority = priority;
+        this.userName = userName;
     }
 
     public String getNoteTitle() {
@@ -33,5 +35,17 @@ public class AddNoteForm {
 
     public void setPriority(String priority) {
         this.priority = priority;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String toString() {
+        return "Title: " + noteTitle + " Content: " + noteContent + " User: " + userName;
     }
 }

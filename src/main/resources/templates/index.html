@@ -34,6 +34,9 @@
                             <p>Every day notepad</p>
                         </a>
                     </div>
+                    <div class="navbar-right">
+                        <p class="navbar-brand" th:text="'User: ' + ${user.name}"></p>
+                    </div>
                 </div>
             </nav>
             <ul class="list-group">
@@ -70,6 +73,10 @@
                                     <div class="form-group">
                                         <label for="priority">Priority</label>
                                         <input type="text" class="form-control" id="priority" placeholder="Priority">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userName">User</label>
+                                        <input type="text" class="form-control" id="userName" placeholder="User">
                                     </div>
                                 </form>
                             </div>
